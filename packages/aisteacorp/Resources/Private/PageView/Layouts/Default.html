@@ -1,0 +1,37 @@
+<header class="header sticky">
+    <!-- Logo mit Link zur Startseite -->
+    <a href="/" class="logo-link" title="Zur Startseite">
+        <img src="/fileadmin/logo/derzahnarzt-logo.png" alt="Dein Logo" class="logo" width="150" height="60">
+    </a>
+
+    <button class="burger" aria-label="Menü öffnen / schließen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Navigation -->
+    <nav>
+        <ul class="nav-main">
+            <f:for each="{mainnavigation}" as="mainnavigationItem">
+                <li class="{f:if(condition: mainnavigationItem.active, then:'active')}">
+                    <a href="{mainnavigationItem.link}" target="{mainnavigationItem.target}" title="{mainnavigationItem.title}">
+                        {mainnavigationItem.title}
+                    </a>
+                    <f:if condition="{mainnavigationItem.children}">
+                        <ul class="nav-dropdown">
+                            <f:for each="{mainnavigationItem.children}" as="child">
+                                <li class="{f:if(condition: child.active, then:'active')}">
+                                    <a href="{child.link}" target="{child.target}" title="{child.title}">
+                                        {child.title}
+                                    </a>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </nav>
+</header>
+<f:render section="Main" />

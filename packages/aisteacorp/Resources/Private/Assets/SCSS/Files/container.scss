@@ -1,0 +1,220 @@
+.contentWidth {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  video {
+    width: 100%;
+  }
+
+  .frame-type-html {
+  }
+}
+
+// 50/50 Section
+.c-section {
+  padding: 100px 0;
+  background-color: $white;
+
+  // Wenn Hintergrund heller sein soll
+  &.bg-light {
+    background-color: $background-light;
+  }
+
+  // Spalten-Container
+  .c-columns {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    justify-self: center;
+
+    // Abstandselement
+    .space {
+      @media (max-width: 992px) {
+        display: none; // Verstecken auf kleineren Bildschirmen
+      }
+    }
+  }
+
+  // Bild-Styling
+  .ce-image {
+    figure.image {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.8s ease;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
+  // Text-Styling
+  .frame-type-text {
+    // Header mit Überschrift
+    header {
+      margin-bottom: 25px;
+
+      h2 {
+        font-size: 40px;
+        font-weight: 600;
+        color: $dark-text;
+        margin-bottom: 15px;
+        position: relative;
+        line-height: 1.2;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 3px;
+          background: linear-gradient(90deg, $primary-color, $secondary-color);
+          margin-top: 15px;
+          @media (max-width: 576px) {
+            left: 0;
+            position: absolute;
+          }
+        }
+
+        @media (max-width: 768px) {
+          font-size: 32px;
+        }
+
+        @media (max-width: 576px) {
+          font-size: 25px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    // Paragraph-Styling
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: $light-text;
+      margin-bottom: 20px;
+
+      @media (max-width: 576px) {
+        font-size: 16px;
+      }
+
+      // Fettgedruckter Text
+      strong {
+        color: $dark-text;
+        font-weight: 600;
+      }
+    }
+
+    // Zitat-Styling (für die Praxisphilosophie)
+    .zitat {
+      display: block;
+      font-style: italic;
+      color: $dark-text;
+      font-size: 20px;
+      line-height: 1.5;
+      position: relative;
+      padding: 15px 25px;
+      margin: 30px 0;
+      border-left: 3px solid $primary-color;
+      background-color: rgba(0, 113, 227, 0.05);
+      border-radius: 0 8px 8px 0;
+
+      @media (max-width: 576px) {
+        font-size: 18px;
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  // Animation für ScrollAnimation
+  &.isInViewport {
+    .col-1 {
+      animation: fadeInLeft 1s ease forwards;
+    }
+
+    .col-2 {
+      animation: fadeInRight 1s ease forwards;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  // Responsive Anpassungen
+  @media (max-width: 992px) {
+    padding: 70px 0;
+
+    .c-columns {
+      .col-1 {
+        margin-bottom: 40px;
+      }
+    }
+
+    .frame-type-text {
+      header {
+        h2::after {
+          margin: 15px auto 0;
+        }
+      }
+    }
+  }
+}
+
+.frame-type-text ul {
+  margin: 16px 0;
+  padding-left: 0;
+
+  li {
+    position: relative;
+    list-style: none;
+    padding-left: 28px;
+    margin: 8px 0;
+    color: $dark-text;
+    line-height: 1.5;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: $gradient;
+      border-radius: 50%;
+    }
+  }
+}

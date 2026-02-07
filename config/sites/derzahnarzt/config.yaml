@@ -1,0 +1,19 @@
+base: 'https://derzahnarzt.ddev.site/'
+dependencies:
+  - typo3/form
+  - typo3/seo-sitemap
+  - typo3/redirects
+  - aistea/aisteacorp
+languages:
+  -
+    title: Deutsch
+    enabled: true
+    languageId: 0
+    base: /
+    locale: de_DE
+    navigationTitle: English
+    flag: de
+    hreflang: ''
+    websiteTitle: ''
+rootPageId: 1
+websiteTitle: ''

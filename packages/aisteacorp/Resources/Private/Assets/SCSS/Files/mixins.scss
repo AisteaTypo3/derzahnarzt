@@ -1,0 +1,6 @@
+// Mixins
+@mixin glass-effect {
+  background-color: rgba(17, 17, 17, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}

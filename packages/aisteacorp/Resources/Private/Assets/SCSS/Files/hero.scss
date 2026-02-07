@@ -1,0 +1,202 @@
+.hero {
+  padding: 0;
+
+  .bg-media {
+    z-index: -1;
+  }
+}
+// Hero Section
+.hero {
+  min-height: 550px;
+
+  // Hintergrundbild
+  .bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  video {
+    z-index: 1!important;
+  }
+
+  // Overlay für bessere Lesbarkeit
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 60%, rgba(0, 0, 0, 0.0) 100%);
+    z-index: 1;
+  }
+
+  // Content Container
+  .contentWidth {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+      padding: 0 20px;
+    }
+
+    // Ausrichtung des Contents (align-left)
+    &.content {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+
+  // Der Frame Container
+  .frame {
+    max-width: 600px;
+    color: $white;
+
+    @media (max-width: 992px) {
+      max-width: 100%;
+    }
+  }
+
+  // Header mit H1 und H2
+  header {
+    margin-bottom: 30px;
+  }
+
+  // H1 - Hauptüberschrift
+  h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: $white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 992px) {
+      font-size: 42px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 28px;
+    }
+  }
+
+  // H2 - Subtitle (Natürlich BIO.Logisch!)
+  .frame-type-text header h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: $primary-color!important;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    &::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background-color: $primary-color;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
+  }
+
+  // Paragraph und Button
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: $white!important;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+
+    @media (max-width: 576px) {
+      font-size: 16px;
+    }
+
+    // Für den doppelten <br>
+    br {
+      content: '';
+      display: block;
+      margin: 15px 0;
+    }
+  }
+
+  // Einblendanimation für den gesamten Content
+  .frame {
+    animation: fadeIn 1.2s ease forwards;
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Responsive Anpassungen
+  @media (max-width: 768px) {
+    &::after {
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8) 100%);
+    }
+
+    .contentWidth.content {
+      align-items: flex-end;
+      padding-bottom: 60px;
+    }
+
+    header {
+      text-align: center;
+
+      h2::after {
+        margin: 8px auto 0;
+      }
+    }
+
+    p {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      justify-items: center;
+    }
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      text-align: center;
+      max-width: 250px;
+    }
+  }
+
+  // Animation für Viewport Detection
+  &.isInViewport {
+    .frame {
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards 0.3s;
+    }
+  }
+}

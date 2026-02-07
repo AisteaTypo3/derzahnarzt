@@ -1,0 +1,43 @@
+footer {
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+  }
+
+  .c-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .icon {
+    display: inline-block;
+    width: 100%;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    padding: 0 0 0 2.5rem;
+    text-decoration: none;
+    color: black;
+  }
+
+  .google {
+    background-image: url('/fileadmin/icons/google.svg');
+  }
+  .jameda {
+    background-image: url('/fileadmin/icons/jameda.png');
+  }
+  .car {
+    background-image: url('/fileadmin/icons/car.svg');
+  }
+  .footer-copyright {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    @include glass-effect;
+    color: white;
+  }
+}

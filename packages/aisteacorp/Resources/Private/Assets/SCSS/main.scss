@@ -1,0 +1,25 @@
+@import "Files/variables";
+@import "Files/mixins";
+@import "Files/button";
+@import "Files/nav";
+@import "Files/hero";
+@import "Files/footer";
+
+@import "Files/container";
+@import "Files/accordion";
+@import "Files/bio-box";
+@import "Files/downloads";
+@import "Files/video-popup";
+
+* {
+  font-family: -apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif
+}
+body {
+  margin: 0;
+
+  p a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+}
+

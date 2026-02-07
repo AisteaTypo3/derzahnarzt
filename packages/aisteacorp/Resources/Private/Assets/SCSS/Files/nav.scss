@@ -1,0 +1,339 @@
+// Header & Navigation
+.header {
+  //width: calc(100% - 80px);
+  @include glass-effect;
+  box-shadow: $shadow;
+  z-index: 1000;
+
+  &.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 6px black;
+    //width: 100vw;
+
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: $header-height;
+
+  // Logo styling
+  .logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    .logo {
+      height: auto;
+      transition: opacity $transition-speed ease;
+      width: 180px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // Burger menu for mobile
+  .burger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1010;
+
+    span {
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: white;
+      margin: 7px 0;
+      transition: transform $transition-speed ease, opacity $transition-speed ease;
+    }
+
+    &[aria-expanded="true"] {
+      span {
+        &:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+          margin: 4px 0;
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          margin: 4px 0;
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
+          margin: 4px 0;
+        }
+      }
+    }
+  }
+
+  // Main navigation
+  nav {
+    height: 100%;
+
+    .nav-main {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+
+      > li {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        > a {
+          display: flex;
+          align-items: center;
+          padding: 0 15px;
+          height: 100%;
+          font-size: 16px;
+          letter-spacing: 1px;
+          font-weight: 400;
+          color: $white;
+          text-decoration: none;
+          transition: color $transition-speed ease;
+          white-space: nowrap;
+
+          &:hover, &:focus {
+            color: $primary-color;
+          }
+        }
+
+        // Highlight "Termin anfragen" - Make it a button
+        &:last-child {
+          margin-left: 15px;
+
+          > a {
+            background-color: $primary-color;
+            color: $white;
+            padding: 8px 18px 8px 35px;
+            height: auto;
+            border-radius: 980px;
+            font-weight: 500;
+            transition: all $transition-speed ease;
+
+            background-image: url('/fileadmin/icons/telefon.svg');
+            background-repeat: no-repeat;
+            background-position: 10px center;
+            background-size: 20px;
+
+            &:hover, &:focus {
+              background-color: darken($primary-color, 5%);
+              transform: scale(1.02);
+            }
+          }
+        }
+
+        // Dropdown menus
+        &:hover {
+          .nav-dropdown {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+          }
+        }
+      }
+    }
+
+    // Dropdown styling
+    .nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      list-style: none;
+      margin: 0;
+      padding: 8px 0;
+      min-width: 220px;
+      background-color: $white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: all $transition-speed ease;
+      z-index: 100;
+
+      li {
+        a {
+          display: block;
+          padding: 10px 20px;
+          font-size: 14px;
+          color: $dark-text;
+          text-decoration: none;
+          transition: background-color $transition-speed ease;
+
+          &:hover, &:focus {
+            background-color: $hover-color;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: $mobile-breakpoint) {
+  .header {
+    padding: 0 20px;
+
+    .burger {
+      display: block;
+    }
+
+    nav {
+      position: fixed;
+      top: $header-height;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - #{$header-height});
+      @include glass-effect;
+      transform: translateX(-100%);
+      transition: transform $transition-speed ease;
+      overflow-y: auto;
+
+      &.active {
+        transform: translateX(0);
+      }
+
+      .nav-main {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+
+        > li {
+          height: auto;
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start;
+          position: relative;
+          flex-flow: wrap;
+
+          > a {
+            padding: 15px 20px;
+            width: 100%;
+
+            &:hover, &:focus {
+              background-color: $hover-color;
+            }
+          }
+
+          &:last-child {
+            margin: 15px 20px;
+            width: auto;
+
+            > a {
+              width: 100%;
+              text-align: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+
+      .nav-dropdown {
+        position: static;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        box-shadow: none;
+        background-color: transparent;
+        width: 100%;
+        padding-left: 20px;
+        display: none;
+
+        &.active {
+          display: block;
+        }
+
+        li a {
+          padding: 10px 20px 10px 30px;
+          color: white;
+        }
+      }
+    }
+  }
+  .nav-main {
+    li {
+      position: relative;
+    }
+
+    // Hauptpunkte mit Subnav: Pfeil rechts
+    li > ul.nav-dropdown {
+      padding-left: 12px; // leichte Einrückung
+      margin-top: 6px;
+    }
+
+    li:has(> ul.nav-dropdown) > a,
+      // Fallback (falls :has nicht geht, funktioniert trotzdem durch is-open Klasse)
+    li > ul.nav-dropdown + * {
+      // keine Wirkung, nur damit du siehst: wir stylen unten über is-open
+    }
+
+    // Pfeil per ::after an den Link, wenn LI eine Subnav hat:
+    li > ul.nav-dropdown {
+      // bleibt hier leer, wir setzen Pfeil über JS-Klasse
+    }
+
+    li > a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    li > a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    /* 1) Standard: kein Pfeil */
+    li > a::after {
+      content: none;
+    }
+
+    /* 2) Pfeil nur für echte Dropdown-Items */
+    li.has-dropdown > a::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      flex: 0 0 auto;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease;
+      opacity: 0.8;
+    }
+
+    /* offen = Pfeil nach oben */
+    li.has-dropdown.is-open > a::after {
+      transform: rotate(-135deg);
+    }
+
+    // optional: etwas "Accordion feel"
+    li > ul.nav-dropdown[hidden] {
+      display: none !important;
+    }
+
+    li > ul.nav-dropdown {
+      display: block;
+    }
+  }
+
+}
+
+

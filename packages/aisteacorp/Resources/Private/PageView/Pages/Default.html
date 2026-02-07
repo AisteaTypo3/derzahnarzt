@@ -1,0 +1,16 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <header>
+        <f:render partial="Content" arguments="{records: content.header.records}"/>
+    </header>
+
+    <main>
+        <f:render partial="Content" arguments="{records: content.main.records}"/>
+    </main>
+
+    <footer>
+        <f:render partial="Content" arguments="{records: content.footer.records}"/>
+        <span class="footer-copyright">© <f:format.date date="now" format="Y" /> Kompetenzzentrum für biologische Zahnmedizin</span>
+
+    </footer>
+</f:section>
