@@ -16,6 +16,11 @@
   padding: 100px 0;
   background-color: $white;
 
+  @media (max-width: 768px) {
+    padding-top: 4em!important;
+    padding-bottom: 4em!important;
+  }
+
   // Wenn Hintergrund heller sein soll
   &.bg-light {
     background-color: $background-light;

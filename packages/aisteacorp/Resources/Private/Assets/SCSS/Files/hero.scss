@@ -9,6 +9,10 @@
 .hero {
   min-height: 550px;
 
+  @media (max-width: 768px) {
+    min-height: 350px;
+  }
+
   // Hintergrundbild
   .bg-image {
     position: absolute;
@@ -166,7 +170,7 @@
 
     .contentWidth.content {
       align-items: flex-end;
-      padding-bottom: 60px;
+      padding-bottom: 20px;
     }
 
     header {
