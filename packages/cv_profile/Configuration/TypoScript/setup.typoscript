@@ -1,0 +1,15 @@
+plugin.tx_cvprofile {
+    view {
+        templateRootPaths.0  = EXT:cv_profile/Resources/Private/Templates/
+        partialRootPaths.0   = EXT:cv_profile/Resources/Private/Partials/
+        layoutRootPaths.0    = EXT:cv_profile/Resources/Private/Layouts/
+    }
+    persistence {
+        storagePid = {$plugin.tx_cvprofile.storagePid}
+    }
+    settings {
+        profileUid = 0
+    }
+}
+
+plugin.tx_cvprofile_cvshow < plugin.tx_cvprofile

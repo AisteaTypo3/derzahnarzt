@@ -1,0 +1,28 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+<section class="cv-timeline" aria-labelledby="cv-timeline-heading">
+    <div class="cv-section-head">
+        <p class="cv-section-kicker">Werdegang</p>
+        <h2 id="cv-timeline-heading" class="cv-section-title">Stationen</h2>
+    </div>
+
+    <div class="cv-tl-list">
+        <f:for each="{stations}" as="station">
+            <article class="cv-tl-item">
+                <div class="cv-tl-dot" aria-hidden="true"></div>
+                <f:if condition="{station.period}">
+                    <div class="cv-tl-period">{station.period}</div>
+                    <f:else>
+                        <div class="cv-tl-period"></div>
+                    </f:else>
+                </f:if>
+                <div class="cv-tl-card">
+                    <h3 class="cv-tl-institution">{station.institution}</h3>
+                    <p class="cv-tl-role">{station.role}</p>
+                    <f:if condition="{station.description}">
+                        <p class="cv-tl-description">{station.description}</p>
+                    </f:if>
+                </div>
+            </article>
+        </f:for>
+    </div>
+</section>

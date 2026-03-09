@@ -1,0 +1,8 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+<ul class="cv-degrees" aria-label="Abschlüsse und Qualifikationen">
+    <f:for each="{degrees}" as="degree">
+        <f:if condition="{degree.label}">
+            <li class="cv-deg">{degree.label}</li>
+        </f:if>
+    </f:for>
+</ul>

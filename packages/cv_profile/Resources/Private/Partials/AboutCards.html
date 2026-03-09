@@ -1,0 +1,29 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+<section class="cv-about" aria-labelledby="cv-about-heading">
+    <div class="cv-section-head">
+        <p class="cv-section-kicker">Profilübersicht</p>
+        <h2 id="cv-about-heading" class="cv-section-title">Über mich</h2>
+    </div>
+
+    <div class="cv-about-grid">
+        <f:for each="{highlights}" as="highlight">
+            <f:if condition="{highlight.statValue}">
+                <f:then></f:then>
+                <f:else>
+                    <article class="cv-about-card">
+                        <div class="cv-about-icon" aria-hidden="true">
+                            <f:if condition="{highlight.icon}">
+                                {highlight.icon}
+                                <f:else>✦</f:else>
+                            </f:if>
+                        </div>
+                        <h3 class="cv-about-card-title">{highlight.headline}</h3>
+                        <f:if condition="{highlight.body}">
+                            <p class="cv-about-card-body">{highlight.body}</p>
+                        </f:if>
+                    </article>
+                </f:else>
+            </f:if>
+        </f:for>
+    </div>
+</section>

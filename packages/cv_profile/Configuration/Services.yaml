@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Aistea\CvProfile\:
+    resource: '../Classes/*'
+
+  Aistea\CvProfile\Controller\CvController:
+    public: true

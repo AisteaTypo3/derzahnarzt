@@ -1,0 +1,90 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{profile}">
+        <f:then>
+        <div class="cv-profile" id="cv-profile-{profile.uid}">
+            <section class="cv-hero">
+                <div class="cv-hero-bg">
+                    <span class="cv-orb cv-orb-1" aria-hidden="true"></span>
+                    <span class="cv-orb cv-orb-2" aria-hidden="true"></span>
+                    <span class="cv-grid" aria-hidden="true"></span>
+                </div>
+
+                <div class="cv-hero-inner">
+                    <div class="cv-hero-copy">
+                        <f:if condition="{profile.specialisation}">
+                            <div class="cv-badge">{profile.specialisation}</div>
+                        </f:if>
+
+                        <h1 class="cv-name">
+                            <f:if condition="{profile.titlePrefix}">
+                                <span class="cv-title-prefix">{profile.titlePrefix}</span>
+                            </f:if>
+                            <span class="cv-title-name">{profile.name}</span>
+                        </h1>
+
+                        <f:if condition="{profile.tagline}">
+                            <p class="cv-tagline">{profile.tagline}</p>
+                        </f:if>
+
+                        <button type="button" class="cv-scroll-hint" aria-label="Zum Profilbereich scrollen">
+                            <span class="cv-scroll-hint-text">Profil ansehen</span>
+                            <span class="cv-scroll-hint-arrow" aria-hidden="true">↓</span>
+                        </button>
+                    </div>
+
+                    <div class="cv-hero-media">
+                        <f:if condition="{f:count(subject: profile.photoCollection)}">
+                            <f:then>
+                                <f:for each="{profile.photoCollection}" as="photo" iteration="iterator">
+                                    <f:if condition="{iterator.isFirst}">
+                                        <div class="cv-portrait-wrap">
+                                            <f:image image="{photo}" alt="{profile.name}" class="cv-portrait" />
+                                        </div>
+                                    </f:if>
+                                </f:for>
+                            </f:then>
+                            <f:else>
+                                <div class="cv-portrait-wrap cv-portrait-placeholder">
+                                    <div class="cv-portrait-initials" aria-hidden="true">
+                                        <f:if condition="{profile.name}">
+                                            {profile.name -> f:format.crop(maxCharacters: 2, append: '')}
+                                        </f:if>
+                                    </div>
+                                </div>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </div>
+            </section>
+
+            <main class="cv-main" id="cv-main-{profile.uid}">
+                <f:if condition="{profile.showDegrees}">
+                    <f:if condition="{f:count(subject: profile.degrees)}">
+                        <section class="cv-qualifications" aria-labelledby="cv-qualifications-heading">
+                            <div class="cv-section-head">
+                                <p class="cv-section-kicker">Qualifikation</p>
+                                <h2 id="cv-qualifications-heading" class="cv-section-title">Qualifikationen</h2>
+                            </div>
+                            <f:render partial="Degrees" arguments="{degrees: profile.degrees}" />
+                        </section>
+                    </f:if>
+                </f:if>
+                <f:render partial="AboutCards" arguments="{highlights: profile.highlights}" />
+                <f:render partial="Stats" arguments="{highlights: profile.highlights}" />
+                <f:render partial="Timeline" arguments="{stations: profile.stations}" />
+            </main>
+        </div>
+        </f:then>
+        <f:else>
+            <div class="cv-profile">
+                <div class="cv-empty">
+                    <h2 class="cv-empty-title">Kein Profil gefunden</h2>
+                    <p class="cv-empty-text">Bitte im Plugin ein Profil auswählen oder einen Profildatensatz im Speicherordner anlegen.</p>
+                </div>
+            </div>
+        </f:else>
+    </f:if>
+</f:section>

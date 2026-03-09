@@ -1,0 +1,30 @@
+{
+  "name": "aistea/cv-profile",
+  "description": "TYPO3 v13 extension to render an animated CV/profile page",
+  "type": "typo3-cms-extension",
+  "license": "MIT",
+  "require": {
+    "php": "^8.2",
+    "typo3/cms-core": "^13.0",
+    "typo3/cms-extbase": "^13.0",
+    "typo3/cms-fluid": "^13.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aistea\\CvProfile\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Aistea\\CvProfile\\Tests\\": "Tests/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "cv_profile"
+    }
+  }
+}

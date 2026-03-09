@@ -1,0 +1,56 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Main">
+    <f:if condition="{profile}">
+        <section class="cv-hero">
+            <div class="cv-hero-bg">
+                <span class="cv-orb cv-orb-1" aria-hidden="true"></span>
+                <span class="cv-orb cv-orb-2" aria-hidden="true"></span>
+                <span class="cv-grid" aria-hidden="true"></span>
+            </div>
+
+            <div class="cv-hero-inner">
+                <div class="cv-hero-copy">
+                    <f:if condition="{profile.specialisation}">
+                        <div class="cv-badge">{profile.specialisation}</div>
+                    </f:if>
+
+                    <h1 class="cv-name">
+                        <f:if condition="{profile.titlePrefix}">
+                            <span class="cv-title-prefix">{profile.titlePrefix}</span>
+                        </f:if>
+                        <span class="cv-title-name">{profile.name}</span>
+                    </h1>
+
+                    <f:if condition="{profile.showDegrees}">
+                        <f:if condition="{f:count(subject: profile.degrees)}">
+                            <f:render partial="Degrees" arguments="{degrees: profile.degrees}" />
+                        </f:if>
+                    </f:if>
+
+                    <f:if condition="{profile.tagline}">
+                        <p class="cv-tagline">{profile.tagline}</p>
+                    </f:if>
+
+                    <button type="button" class="cv-scroll-hint" aria-label="Zum Profilbereich scrollen">
+                        <span class="cv-scroll-hint-text">Profil ansehen</span>
+                        <span class="cv-scroll-hint-arrow" aria-hidden="true">↓</span>
+                    </button>
+                </div>
+
+                <div class="cv-hero-media">
+                    <f:if condition="{f:count(subject: profile.photoCollection)}">
+                        <f:for each="{profile.photoCollection}" as="photo" iteration="iterator">
+                            <f:if condition="{iterator.isFirst}">
+                                <div class="cv-portrait-wrap">
+                                    <f:image image="{photo}" alt="{profile.name}" class="cv-portrait" />
+                                </div>
+                            </f:if>
+                        </f:for>
+                    </f:if>
+                </div>
+            </div>
+        </section>
+    </f:if>
+</f:section>

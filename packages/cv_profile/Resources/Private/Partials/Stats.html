@@ -1,0 +1,17 @@
+{namespace f=TYPO3\CMS\Fluid\ViewHelpers}
+<section class="cv-stats" aria-label="Statistiken">
+    <div class="cv-stats-grid">
+        <f:for each="{highlights}" as="highlight">
+            <f:if condition="{highlight.statValue}">
+                <div class="cv-stat">
+                    <div class="cv-stat-num"
+                         data-target="{highlight.statValue}"
+                         data-suffix="{highlight.statSuffix}">
+                        {highlight.statValue}{highlight.statSuffix}
+                    </div>
+                    <div class="cv-stat-label">{highlight.statLabel}</div>
+                </div>
+            </f:if>
+        </f:for>
+    </div>
+</section>
