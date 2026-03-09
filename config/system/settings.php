@@ -22,8 +22,8 @@ return [
             'backendLogo' => '',
             'loginBackgroundImage' => '',
             'loginFootnote' => '',
-            'loginHighlightColor' => '',
-            'loginLogo' => 'fileadmin/logo/derzahnarzt-logo.png',
+            'loginHighlightColor' => '#05c3de',
+            'loginLogo' => 'fileadmin/logo/derzahnarzt-logo_01.png',
             'loginLogoAlt' => '',
         ],
         'extensionmanager' => [
