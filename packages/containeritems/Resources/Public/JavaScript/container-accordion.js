@@ -20,16 +20,14 @@ function initAccordion(accordion) {
               item.classList.remove('act');
               titleButton.setAttribute('aria-expanded', 'false');
           } else {
-              if (accordion.classList.contains('autocollapse')) {
-                  accordionItems.forEach(otherItem => {
-                      if (otherItem !== item) {
-                          otherItem.querySelector('.c-accordion-content').style.maxHeight = '0';
-                          otherItem.querySelector('.c-accordion-content').setAttribute('aria-hidden', 'true');
-                          otherItem.classList.remove('act');
-                          otherItem.querySelector('.c-accordion-title').setAttribute('aria-expanded', 'false');
-                      }
-                  });
-              }
+              accordionItems.forEach(otherItem => {
+                  if (otherItem !== item) {
+                      otherItem.querySelector('.c-accordion-content').style.maxHeight = '0';
+                      otherItem.querySelector('.c-accordion-content').setAttribute('aria-hidden', 'true');
+                      otherItem.classList.remove('act');
+                      otherItem.querySelector('.c-accordion-title').setAttribute('aria-expanded', 'false');
+                  }
+              });
               content.style.maxHeight = content.scrollHeight + 'px';
               content.setAttribute('aria-hidden', 'false');
               item.classList.add('act');
