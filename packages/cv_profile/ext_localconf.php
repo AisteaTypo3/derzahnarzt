@@ -14,11 +14,4 @@ defined('TYPO3') or die();
         [],
         \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
     );
-
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptConstants(
-        "@import 'EXT:cv_profile/Configuration/TypoScript/constants.typoscript'"
-    );
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
-        "@import 'EXT:cv_profile/Configuration/TypoScript/setup.typoscript'"
-    );
 })();

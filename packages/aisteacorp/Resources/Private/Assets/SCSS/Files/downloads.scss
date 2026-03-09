@@ -34,6 +34,7 @@
   padding: 14px 16px;
   min-width: 0;
 
+  cursor: pointer;
   transition:
           background-color $transition-speed ease,
           box-shadow $transition-speed ease,
@@ -89,6 +90,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: color $transition-speed ease;
+
+  // Stretched link: deckt die gesamte li ab
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
 
   &:hover { color: $primary-color; }
   &:focus-visible {

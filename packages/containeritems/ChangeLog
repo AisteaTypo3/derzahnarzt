@@ -1,0 +1,107 @@
+* 1.0.1
+    - full viewport height calculation js/css mobile fix
+* 2.0.0
+    - !note: database update needed
+    - !breaking: change SQL tx_containeritems_s_vcenter chackbox to tx_containeritems_s_valign select
+      add vertical align select with top, center, and bottom
+    - !breaking: remove overlay opacity field and use alpha channel colors instead
+    - move sections and columns styles inline
+    - add language sync option for translated records
+    - sections content fade-in/out option with TypoScript constant
+    - change to hyphenated class names
+    - add SVG background option to sections
+    - fixed placement option for background videos
+    - minimised use of jQuery, now needed only for the 'Clear Button'
+2.0.1
+    - [BUGFIX] No bg color with hidden bg videos
+3.0.0
+    - [BUGFIX] Change tx_containeritems_s_framepadding to varchar for string values
+    - [FEATURE] Remove Gifbuilder background effects
+    - [FEATURE] Backgrounds on Acid! backdrop-filter effects for content sections
+                (experimental, works properly only on webkit browsers)
+    - [FEATURE] Add 'stay open' and 'first open on load' settings for accordion
+    - [FEATURE] Custom class option for gather container type
+3.1.0
+    - [FEATURE] Box content element for attention, warning, success, etc
+4.0.0
+    - [!! BREAKING CHANGES!!]
+    - [FEATURE] All FE assets moved to Fluid templates, load only with the content type present
+    - [FEATURE] Add Siema carousel container - still kinda experimental
+    - [TASK] Move all TS setup to one file and optimize
+    - [TASK] Clean up TS constants
+    - [TASK] TYPO3 12 friendly
+    - [!! UPGRADE] Make sure to include Containeritems TypoScript template again
+                   Make sure your custom styles, templates and partials get loaded
+4.1.0
+    - [!!BREAKING CHANGES!!]
+    - [FEATURE] CSS files defined through TS constants
+    - [FEATURE] Load CSS and JS on demand with ext:embedassets viewhelpers
+    - [FEATURE] Effect options for when bg image fully loaded or video ready to play
+    - [TASK] Move section bg images from css background to img
+    - [TASK] Optimize JS and CSS
+    - [TASK] Remove jQuery and the need for it
+    - [TASK] Move predefined colour options for text and background to PageTS
+    - [TASK] (!BREAKING!) Remove custom colour fields for text and background
+    - [TASK] (!BREAKING!) Rename TS constants for better semantics
+    - [BUGFIX] Column styles file
+    - [!!UPGRADE!!]
+      - TS constants need to be revised
+      - Database upgrade needed
+4.1.1
+    - [TASK] Add tabindex for focusing
+4.1.2
+    - [TASK] Set tabindex to -1 for sections
+    - [TASK] Replace section div with section
+4.1.3
+    - [TASK] change to transform: translate vor validation
+    - [BUGFIX] add overlay colors only if present
+    - [TASK] no render bg buttons div if no buttons
+    - [BUGFIX] section auto with max-width to revertt
+4.2.0
+    - [FEATURE] add JS to open popups with anchor links
+    - [BUGFIX] Allow multiple accordions on same page
+    - [TASK] Remove default max-width from section
+4.2.1
+    - [TASK] Improve popup opening and closing
+4.2.2
+    - [TASK] Remove close button bg on mobile
+4.3.0
+    - [TASK] Add tabs container
+    - [TASK] Add TYPO3 icons
+4.3.1
+    - [BUGFIX] Add missing tabs icon
+4.4.0
+    - [FEATURE] ext:t3x-iconpack support
+    - [TASK] Remove TYPO3 v10 support
+4.5.0
+    - [TASK] Improve accessibility for popups and accordions
+    - [TASK] Add arrow navigation to tabs
+    - [TASK] Change tabs container class for query
+    - [TASK] Add aria-selected and aria-expanded functions to tabs
+    - [TASK] Set iconpack constant to 0 by default
+    - [TASK] improve pop-up close button accessibility
+    - [TASK] Improve header layout
+    - [TASK] Improve iconpack install instructions
+    - [TASK] Optional iconpack support with TS constant
+    - [TASK] Code clean up
+    - [BUGIX] add custom classes to front end
+    - [TASK] Require t3x-iconpack
+    - [TASK] Removie manual popupOpeners
+    - [BUGFIX] Correct placement for certain cases
+    - [TASK] Improve accordion scripts and accessibility
+    - [BREAKING] change tx_containeritems_a_stayopen to tx_containeritems_a_autocollapse
+    - [TASK] Improve accordions accessibility
+    - [TASK] accessibility improvements and code cleanup
+    - [BUGFIX] add custom classes to FE
+    - [TASK] add custom classes and improve accessibility
+4.5.2
+    - [BUGFIX] Anchor links and popup closing
+4.5.3
+    - [TASK] change popup visibility hidden by default
+5.0.0
+    - [TASK] v13 compatibility
+    - [TASK] further improvement of popup opening and closing
+    - [TASK] change using local storage to simple variable
+    - [BUGFIX] no need opening popups if no hash
+    - TASK] add TYPO3 13 supprot, experimental
+    - [TASK] improve popup closing using 'back' and fix for Firefox

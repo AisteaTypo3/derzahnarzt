@@ -1,0 +1,36 @@
+containerItems:
+  templateRootPaths: 'EXT:containeritems/Resources/Private/Templates/'
+  partialRootPaths: 'EXT:containeritems/Resources/Private/Partials/'
+  accordionCssFile: 'EXT:containeritems/Resources/Public/Css/container-accordion.css'
+  accordionCssFilePriority: 1
+  tabsCssFile: 'EXT:containeritems/Resources/Public/Css/container-tabs.css'
+  tabsCssFilePriority: 1
+  boxCssFile: 'EXT:containeritems/Resources/Public/Css/container-box.css'
+  boxCssFilePriority: 1
+  columnsCssFile: 'EXT:containeritems/Resources/Public/Css/container-columns.css'
+  columnsCssFilePriority: 1
+  columnsSpaceWidth: 5
+  columnsWidthOfWider: 60
+  popupCssFile: 'EXT:containeritems/Resources/Public/Css/container-popup.css'
+  popupCssFilePriority: 0
+  sectionCssFile: 'EXT:containeritems/Resources/Public/Css/container-section.css'
+  sectionCssFilePriority: 1
+  sectionDefaultAlignment: 'left'
+  sectionBgImageWidth: 1400
+  sectionScrollInEffectCssFile: 'EXT:containeritems/Resources/Public/Css/container-section-scroll-in-effects.css'
+  sectionScrollInEffectCssPriority: 1
+  sectionScrollInEffect: ''
+  siemaCssFile: 'EXT:containeritems/Resources/Public/Css/container-siema.css'
+  siemaCssFilePriority: 1
+  cssEmbed: 1
+  enableIconpack: 0
+
+# These are referenced in setup.typoscript under the containerColumns/containerSection namespace
+containerColumns:
+  spaceWidth: 5
+  wideColOfTwoWidth: 60
+
+containerSection:
+  defaultScrollInEffect: ''
+  defaultAlignment: 'left'
+  bgImageWidth: 1400

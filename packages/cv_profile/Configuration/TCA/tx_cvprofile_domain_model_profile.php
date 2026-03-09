@@ -43,7 +43,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 40,
-                'eval' => 'trim,required',
+                'eval' => 'trim',
+                'required' => true,
                 'max' => 255,
             ],
         ],

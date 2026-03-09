@@ -21,8 +21,6 @@ page:
 
 config:
   no_cache: '0'
-  removeDefaultJS: '0'
   admPanel: '1'
-  prefixLocalAnchors: 'all'
   headerComment: 'build by get.typo3.org/sitepackage'
   sendCacheHeaders: '1'

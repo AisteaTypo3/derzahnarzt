@@ -3,3 +3,5 @@ label: 'Aisteacorp'
 dependencies:
   - typo3/fluid-styled-content
   - typo3/fluid-styled-content-css
+  - t3brightside/containeritems
+  - aistea/cv-profile
