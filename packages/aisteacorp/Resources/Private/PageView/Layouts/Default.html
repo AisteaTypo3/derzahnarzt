@@ -1,7 +1,62 @@
 <header class="header sticky">
+    <f:page.headerData>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Der Zahnarzt",
+                "url": "https://derzahnarzt.de/",
+                "inLanguage": "de-DE"
+            }
+        </script>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Dentist",
+                "name": "Kompetenzzentrum für biologische Zahnmedizin",
+                "url": "https://derzahnarzt.de/",
+                "telephone": "+49 7721 22591",
+                "email": "info@derzahnarzt.de",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Brigachstraße 4",
+                    "postalCode": "78048",
+                    "addressLocality": "Villingen-Schwenningen",
+                    "addressCountry": "DE"
+                },
+                "openingHoursSpecification": [
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Monday",
+                        "opens": "08:00",
+                        "closes": "18:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Tuesday",
+                        "opens": "08:00",
+                        "closes": "18:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Wednesday",
+                        "opens": "08:00",
+                        "closes": "14:00"
+                    },
+                    {
+                        "@type": "OpeningHoursSpecification",
+                        "dayOfWeek": "Thursday",
+                        "opens": "08:00",
+                        "closes": "18:00"
+                    }
+                ]
+            }
+        </script>
+    </f:page.headerData>
+
     <!-- Logo mit Link zur Startseite -->
     <a href="/" class="logo-link" title="Zur Startseite">
-        <img src="/fileadmin/logo/derzahnarzt-logo.png" alt="Dein Logo" class="logo" width="150" height="60">
+        <img src="/fileadmin/logo/derzahnarzt-logo.png" alt="Der Zahnarzt" class="logo" width="150" height="60">
     </a>
 
     <button class="burger" aria-label="Menü öffnen / schließen" aria-expanded="false">

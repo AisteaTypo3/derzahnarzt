@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('nav');
+    if (!burger || !nav) return;
 
     burger.addEventListener('click', function() {
         const expanded = this.getAttribute('aria-expanded') === 'true' || false;
@@ -142,4 +143,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     apply();
     MOBILE_BP.addEventListener?.("change", apply);
+});
+
+// Reveal content on scroll
+document.addEventListener("DOMContentLoaded", () => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const targets = Array.from(document.querySelectorAll("main > .frame, footer > .frame, .c-section"));
+
+    if (!targets.length) return;
+
+    targets.forEach((element) => {
+        element.classList.add("reveal-block");
+    });
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+        targets.forEach((element) => element.classList.add("active"));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.01,
+        rootMargin: "0px 0px 18% 0px"
+    });
+
+    targets.forEach((element) => observer.observe(element));
 });

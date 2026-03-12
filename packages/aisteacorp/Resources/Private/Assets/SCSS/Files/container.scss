@@ -48,22 +48,31 @@
       overflow: hidden;
       border-radius: 24px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-      }
 
       img {
         width: 100%;
         height: auto;
         display: block;
-        transition: transform 0.8s ease;
+      }
 
-        &:hover {
-          transform: scale(1.03);
-        }
+      a {
+        display: block;
+      }
+
+      &:has(a:hover),
+      &:has(a:focus-visible) {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+      }
+
+      a img {
+        transition: transform 0.8s ease;
+      }
+
+      a:hover img,
+      a:focus-visible img {
+        transform: scale(1.03);
       }
     }
   }
@@ -147,33 +156,18 @@
 
   // Animation für ScrollAnimation
   &.isInViewport {
-    .col-1 {
-      animation: fadeInLeft 1s ease forwards;
+    .c-columns > .col {
+      animation: fadeInUp 0.45s ease-out forwards;
     }
 
-    .col-2 {
-      animation: fadeInRight 1s ease forwards;
-    }
-
-    @keyframes fadeInLeft {
+    @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateX(-30px);
+        transform: translateY(14px);
       }
       to {
         opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
       }
     }
   }

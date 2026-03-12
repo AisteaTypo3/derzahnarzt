@@ -1,4 +1,8 @@
-base: 'https://derzahnarzt.ddev.site/'
+base: 'https://derzahnarzt.de/'
+baseVariants:
+  -
+    base: 'https://derzahnarzt.ddev.site/'
+    condition: 'getenv("IS_DDEV_PROJECT") == "true"'
 dependencies:
   - typo3/form
   - typo3/seo-sitemap
@@ -11,9 +15,9 @@ languages:
     languageId: 0
     base: /
     locale: de_DE
-    navigationTitle: English
+    navigationTitle: Deutsch
     flag: de
-    hreflang: ''
-    websiteTitle: ''
+    hreflang: 'de-DE'
+    websiteTitle: 'Der Zahnarzt'
 rootPageId: 1
-websiteTitle: ''
+websiteTitle: 'Der Zahnarzt'
